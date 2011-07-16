@@ -3,9 +3,30 @@ collection:
 
 empty + find:
 
-insert(object) + find:
+insert(object):
   {"hello":"world","_id":"4e21d7d50123ab0123000001"}
 
+insert(objects):
+  {"string":"string","_id":"4e21d7d60123ab0123000002"}
+  {"number":42,"_id":"4e21d7d70123ab0123000003"}
+  {"boolean":true,"_id":"4e21d7d80123ab0123000004"}
+  {"null":null,"_id":"4e21d7d90123ab0123000005"}
+  {"date":"2011-01-01T08:00:00.000Z","_id":"4e21d7da0123ab0123000006"}
+  {"object":{"boolean":true,"number":42,"array":[1,2,"three"]},"_id":"4e21d7db0123ab0123000007"}
+  {"array":[1,2,"three"],"_id":"4e21d7dc0123ab0123000008"}
+
+find(string = "string"):
+  {"string":"string","_id":"4e21d7d60123ab0123000002"}
+
+find(number = 42):
+  {"number":42,"_id":"4e21d7d70123ab0123000003"}
+
+find(boolean = true):
+  {"boolean":true,"_id":"4e21d7d80123ab0123000004"}
+
+find(null = null):
+  {"null":null,"_id":"4e21d7d90123ab0123000005"}
+
 save(object) + find:
-  {"hello":"world","_id":"4e21d7d60123ab0123000002"}
+  {"hello":"world","_id":"4e21d7dd0123ab0123000009"}
 
