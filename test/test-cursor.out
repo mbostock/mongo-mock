@@ -1,0 +1,15 @@
+cursor([1, 2, 3]).each:
+  1
+  2
+  3
+  null
+
+cursor([1, 2, 3]).nextObject:
+  1
+  2
+  3
+  null
+
+cursor([1, 2, 3]).toArray:
+  1,2,3
+

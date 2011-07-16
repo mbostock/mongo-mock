@@ -1,0 +1,10 @@
+{
+  "name": "mongo-mock",
+  "description":  "In-memory mock implementation of a MongoDB driver.",
+  "version":  "0.0.1",
+  "author": "Mike Bostock <mbostock@gmail.com>",
+  "keywords": ["mongo", "mongodb", "mock"],
+  "repository": "git://github.com/mbostock/mongo-mock",
+  "engines": { "node": "0.4.x" },
+  "main": "./lib/mongo-mock/index.js"
+}

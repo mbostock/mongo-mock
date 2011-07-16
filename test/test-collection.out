@@ -1,0 +1,11 @@
+collection:
+  host:27017/database/collection -> host:27017/database/collection
+
+empty + find:
+
+insert(object) + find:
+  {"hello":"world","_id":"4e21d7d50123ab0123000001"}
+
+save(object) + find:
+  {"hello":"world","_id":"4e21d7d60123ab0123000002"}
+

@@ -1,0 +1,3 @@
+db:
+  host:27017/database -> host:27017/database
+
