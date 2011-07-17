@@ -70,6 +70,42 @@ find(/^STR/i.test(string)):
 find(object.boolean = true and object.number > 41):
   {"object":{"boolean":true,"number":42,"array":[1,2,"three"]},"_id":"4e21d7db0123ab0123000007"}
 
+find(date = 2011-01-01):
+  {"date":"2011-01-01T08:00:00.000Z","_id":"4e21d7da0123ab0123000006"}
+
+find(date >= 2011-01-01):
+  {"date":"2011-01-01T08:00:00.000Z","_id":"4e21d7da0123ab0123000006"}
+
+find(date > 2010-12-31):
+  {"date":"2011-01-01T08:00:00.000Z","_id":"4e21d7da0123ab0123000006"}
+
+find(date <= 2011-01-01)):
+  {"date":"2011-01-01T08:00:00.000Z","_id":"4e21d7da0123ab0123000006"}
+
+find(date < 2011-01-02):
+  {"date":"2011-01-01T08:00:00.000Z","_id":"4e21d7da0123ab0123000006"}
+
+find(date < 2011-01-02 and date > 2010-12-31):
+  {"date":"2011-01-01T08:00:00.000Z","_id":"4e21d7da0123ab0123000006"}
+
+find(date != 2011-01-01):
+
+find(date < 2011-01-01):
+
+find(date <= 2010-12-31):
+
+find(date > 2011-01-01):
+
+find(date >= 2011-01-02):
+
+find(date >= 2011-01-02 and date <= 2010-12-31):
+
+find(_id = ObjectId(4e21d7d80123ab0123000004)):
+  {"boolean":true,"_id":"4e21d7d80123ab0123000004"}
+
+find(array = [1,2,"three"]):
+  {"array":[1,2,"three"],"_id":"4e21d7dc0123ab0123000008"}
+
 save(object) + find:
   {"hello":"world","_id":"4e21d7dd0123ab0123000009"}
 

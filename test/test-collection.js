@@ -1,4 +1,5 @@
-var mongodb = require("../");
+var mongodb = require("../"),
+    ObjectId = mongodb.ObjectId;
 
 var server = new mongodb.Server("host", 27017),
     db = new mongodb.Db("database", server);
@@ -203,6 +204,104 @@ db.open(function(error) {
     });
     console.log("find(object.boolean = true and object.number > 41):");
     collection.find({"object.boolean": true, "object.number": {$gt: -1}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(date = 2011-01-01):");
+    collection.find({date: new Date(2011, 0, 1)}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(date >= 2011-01-01):");
+    collection.find({date: {$gte: new Date(2011, 0, 1)}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(date > 2010-12-31):");
+    collection.find({date: {$gt: new Date(2010, 11, 31)}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(date <= 2011-01-01)):");
+    collection.find({date: {$lte: new Date(2011, 0, 1)}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(date < 2011-01-02):");
+    collection.find({date: {$lt: new Date(2011, 0, 2)}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(date < 2011-01-02 and date > 2010-12-31):");
+    collection.find({date: {$gt: new Date(2010, 11, 31), $lt: new Date(2011, 0, 2)}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(date != 2011-01-01):");
+    collection.find({date: {$ne: new Date(2011, 0, 1)}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(date < 2011-01-01):");
+    collection.find({date: {$lt: new Date(2011, 0, 1)}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(date <= 2010-12-31):");
+    collection.find({date: {$lte: new Date(2010, 11, 31)}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(date > 2011-01-01):");
+    collection.find({date: {$gt: new Date(2011, 0, 1)}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(date >= 2011-01-02):");
+    collection.find({date: {$gte: new Date(2011, 0, 2)}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(date >= 2011-01-02 and date <= 2010-12-31):");
+    collection.find({date: {$lte: new Date(2010, 11, 31), $gte: new Date(2011, 0, 2)}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(_id = ObjectId(4e21d7d80123ab0123000004)):");
+    collection.find({_id: new ObjectId("4e21d7d80123ab0123000004")}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(array = [1,2,\"three\"]):");
+    collection.find({array: [1, 2, "three"]}, function(error, cursor) {
       cursor.each(function(error, object) {
         if (object) console.log("  " + JSON.stringify(object));
         else console.log("");
