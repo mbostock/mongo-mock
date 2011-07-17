@@ -84,8 +84,17 @@ db.open(function(error) {
 
 db.open(function(error) {
   db.collection("save", function(error, collection) {
-    collection.save({hello: "world"}, function(error) {
-      collection.find({}, log("save(object) + find"));
+    var object = {hello: "world"};
+    collection.save(object, function(error) {
+      collection.find({}, log("save(new)"));
+      collection.save(object, function(error) {
+        collection.find({}, log("save(existing)"));
+        object.hello = 2;
+        object.foo = "bar";
+        collection.save(object, function(error) {
+          collection.find({}, log("save(updated)"));
+        });
+      });
     });
   });
 });

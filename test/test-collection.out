@@ -106,6 +106,12 @@ find(_id = ObjectId(4e21d7d80123ab0123000004)):
 find(array = [1,2,"three"]):
   {"array":[1,2,"three"],"_id":"4e21d7dc0123ab0123000008"}
 
-save(object) + find:
+save(new):
   {"hello":"world","_id":"4e21d7dd0123ab0123000009"}
+
+save(existing):
+  {"hello":"world","_id":"4e21d7dd0123ab0123000009"}
+
+save(updated):
+  {"hello":2,"_id":"4e21d7dd0123ab0123000009","foo":"bar"}
 
