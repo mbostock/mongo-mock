@@ -75,6 +75,83 @@ db.open(function(error) {
         else console.log("");
       });
     });
+    console.log("find(number >= 42):");
+    collection.find({number: {$gte: 42}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(number > 41):");
+    collection.find({number: {$gt: 41}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(number <= 42):");
+    collection.find({number: {$lte: 42}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(number < 43):");
+    collection.find({number: {$lt: 43}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(number < 43 and number > 41):");
+    collection.find({number: {$gt: 41, $lt: 43}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(number != 42):");
+    collection.find({number: {$ne: 42}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(number < 42):");
+    collection.find({number: {$lt: 42}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(number <= 41):");
+    collection.find({number: {$lte: 41}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(number > 42):");
+    collection.find({number: {$gt: 42}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(number >= 43):");
+    collection.find({number: {$gte: 43}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(number >= 43 and number <= 41):");
+    collection.find({number: {$lte: 41, $gte: 43}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
     console.log("find(boolean = true):");
     collection.find({boolean: true}, function(error, cursor) {
       cursor.each(function(error, object) {
@@ -82,8 +159,50 @@ db.open(function(error) {
         else console.log("");
       });
     });
+    console.log("find(boolean = false):");
+    collection.find({boolean: false}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(boolean != true):");
+    collection.find({boolean: {$ne: true}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
     console.log("find(null = null):");
     collection.find({null: null}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(string > strinf):");
+    collection.find({string: {$gt: "strinf"}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(string < strinh):");
+    collection.find({string: {$lt: "strinh"}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(/^STR/i.test(string)):");
+    collection.find({string: {$regex: "^STR", $options: "i"}}, function(error, cursor) {
+      cursor.each(function(error, object) {
+        if (object) console.log("  " + JSON.stringify(object));
+        else console.log("");
+      });
+    });
+    console.log("find(object.boolean = true and object.number > 41):");
+    collection.find({"object.boolean": true, "object.number": {$gt: -1}}, function(error, cursor) {
       cursor.each(function(error, object) {
         if (object) console.log("  " + JSON.stringify(object));
         else console.log("");

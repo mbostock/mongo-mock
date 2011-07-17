@@ -21,11 +21,54 @@ find(string = "string"):
 find(number = 42):
   {"number":42,"_id":"4e21d7d70123ab0123000003"}
 
+find(number >= 42):
+  {"number":42,"_id":"4e21d7d70123ab0123000003"}
+
+find(number > 41):
+  {"number":42,"_id":"4e21d7d70123ab0123000003"}
+
+find(number <= 42):
+  {"number":42,"_id":"4e21d7d70123ab0123000003"}
+
+find(number < 43):
+  {"number":42,"_id":"4e21d7d70123ab0123000003"}
+
+find(number < 43 and number > 41):
+  {"number":42,"_id":"4e21d7d70123ab0123000003"}
+
+find(number != 42):
+
+find(number < 42):
+
+find(number <= 41):
+
+find(number > 42):
+
+find(number >= 43):
+
+find(number >= 43 and number <= 41):
+
 find(boolean = true):
   {"boolean":true,"_id":"4e21d7d80123ab0123000004"}
 
+find(boolean = false):
+
+find(boolean != true):
+
 find(null = null):
   {"null":null,"_id":"4e21d7d90123ab0123000005"}
+
+find(string > strinf):
+  {"string":"string","_id":"4e21d7d60123ab0123000002"}
+
+find(string < strinh):
+  {"string":"string","_id":"4e21d7d60123ab0123000002"}
+
+find(/^STR/i.test(string)):
+  {"string":"string","_id":"4e21d7d60123ab0123000002"}
+
+find(object.boolean = true and object.number > 41):
+  {"object":{"boolean":true,"number":42,"array":[1,2,"three"]},"_id":"4e21d7db0123ab0123000007"}
 
 save(object) + find:
   {"hello":"world","_id":"4e21d7dd0123ab0123000009"}
