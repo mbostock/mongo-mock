@@ -134,6 +134,18 @@ db.open(function(error) {
   });
 });
 
+db.open(function(error) {
+  db.collection("sort", function(error, collection) {
+    for (var i = 10; --i >= 0;) collection.insert({key: i, group: (~~(i / 3) + 3) % 3});
+    collection.find({}, {sort: {key: 1}}, log("sort(key)"));
+    collection.find({}, {sort: {key: -1}}, log("sort(-key)"));
+    collection.find({}, {sort: {group: 1, key: 1}}, log("sort(group, key)"));
+    collection.find({}, {sort: {group: 1, key: -1}}, log("sort(group, -key)"));
+    collection.find({}, {sort: {group: -1, key: 1}}, log("sort(-group, key)"));
+    collection.find({}, {sort: {group: -1, key: -1}}, log("sort(-group, -key)"));
+  });
+});
+
 function log(message) {
   return function(error, cursor) {
     console.log(message + ":");

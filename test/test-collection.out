@@ -166,3 +166,75 @@ update($set(object.field)):
 update($unset):
   {"foo":"bar","_id":"4e21d7de0123ab012300000a"}
 
+sort(key):
+  {"key":0,"group":0,"_id":"4e21d7e80123ab0123000014"}
+  {"key":1,"group":0,"_id":"4e21d7e70123ab0123000013"}
+  {"key":2,"group":0,"_id":"4e21d7e60123ab0123000012"}
+  {"key":3,"group":1,"_id":"4e21d7e50123ab0123000011"}
+  {"key":4,"group":1,"_id":"4e21d7e40123ab0123000010"}
+  {"key":5,"group":1,"_id":"4e21d7e30123ab012300000f"}
+  {"key":6,"group":2,"_id":"4e21d7e20123ab012300000e"}
+  {"key":7,"group":2,"_id":"4e21d7e10123ab012300000d"}
+  {"key":8,"group":2,"_id":"4e21d7e00123ab012300000c"}
+  {"key":9,"group":0,"_id":"4e21d7df0123ab012300000b"}
+
+sort(-key):
+  {"key":9,"group":0,"_id":"4e21d7df0123ab012300000b"}
+  {"key":8,"group":2,"_id":"4e21d7e00123ab012300000c"}
+  {"key":7,"group":2,"_id":"4e21d7e10123ab012300000d"}
+  {"key":6,"group":2,"_id":"4e21d7e20123ab012300000e"}
+  {"key":5,"group":1,"_id":"4e21d7e30123ab012300000f"}
+  {"key":4,"group":1,"_id":"4e21d7e40123ab0123000010"}
+  {"key":3,"group":1,"_id":"4e21d7e50123ab0123000011"}
+  {"key":2,"group":0,"_id":"4e21d7e60123ab0123000012"}
+  {"key":1,"group":0,"_id":"4e21d7e70123ab0123000013"}
+  {"key":0,"group":0,"_id":"4e21d7e80123ab0123000014"}
+
+sort(group, key):
+  {"key":0,"group":0,"_id":"4e21d7e80123ab0123000014"}
+  {"key":1,"group":0,"_id":"4e21d7e70123ab0123000013"}
+  {"key":2,"group":0,"_id":"4e21d7e60123ab0123000012"}
+  {"key":9,"group":0,"_id":"4e21d7df0123ab012300000b"}
+  {"key":3,"group":1,"_id":"4e21d7e50123ab0123000011"}
+  {"key":4,"group":1,"_id":"4e21d7e40123ab0123000010"}
+  {"key":5,"group":1,"_id":"4e21d7e30123ab012300000f"}
+  {"key":6,"group":2,"_id":"4e21d7e20123ab012300000e"}
+  {"key":7,"group":2,"_id":"4e21d7e10123ab012300000d"}
+  {"key":8,"group":2,"_id":"4e21d7e00123ab012300000c"}
+
+sort(group, -key):
+  {"key":9,"group":0,"_id":"4e21d7df0123ab012300000b"}
+  {"key":2,"group":0,"_id":"4e21d7e60123ab0123000012"}
+  {"key":1,"group":0,"_id":"4e21d7e70123ab0123000013"}
+  {"key":0,"group":0,"_id":"4e21d7e80123ab0123000014"}
+  {"key":5,"group":1,"_id":"4e21d7e30123ab012300000f"}
+  {"key":4,"group":1,"_id":"4e21d7e40123ab0123000010"}
+  {"key":3,"group":1,"_id":"4e21d7e50123ab0123000011"}
+  {"key":8,"group":2,"_id":"4e21d7e00123ab012300000c"}
+  {"key":7,"group":2,"_id":"4e21d7e10123ab012300000d"}
+  {"key":6,"group":2,"_id":"4e21d7e20123ab012300000e"}
+
+sort(-group, key):
+  {"key":6,"group":2,"_id":"4e21d7e20123ab012300000e"}
+  {"key":7,"group":2,"_id":"4e21d7e10123ab012300000d"}
+  {"key":8,"group":2,"_id":"4e21d7e00123ab012300000c"}
+  {"key":3,"group":1,"_id":"4e21d7e50123ab0123000011"}
+  {"key":4,"group":1,"_id":"4e21d7e40123ab0123000010"}
+  {"key":5,"group":1,"_id":"4e21d7e30123ab012300000f"}
+  {"key":0,"group":0,"_id":"4e21d7e80123ab0123000014"}
+  {"key":1,"group":0,"_id":"4e21d7e70123ab0123000013"}
+  {"key":2,"group":0,"_id":"4e21d7e60123ab0123000012"}
+  {"key":9,"group":0,"_id":"4e21d7df0123ab012300000b"}
+
+sort(-group, -key):
+  {"key":8,"group":2,"_id":"4e21d7e00123ab012300000c"}
+  {"key":7,"group":2,"_id":"4e21d7e10123ab012300000d"}
+  {"key":6,"group":2,"_id":"4e21d7e20123ab012300000e"}
+  {"key":5,"group":1,"_id":"4e21d7e30123ab012300000f"}
+  {"key":4,"group":1,"_id":"4e21d7e40123ab0123000010"}
+  {"key":3,"group":1,"_id":"4e21d7e50123ab0123000011"}
+  {"key":9,"group":0,"_id":"4e21d7df0123ab012300000b"}
+  {"key":2,"group":0,"_id":"4e21d7e60123ab0123000012"}
+  {"key":1,"group":0,"_id":"4e21d7e70123ab0123000013"}
+  {"key":0,"group":0,"_id":"4e21d7e80123ab0123000014"}
+
