@@ -121,6 +121,15 @@ db.open(function(error) {
       collection.update({hello: "world"}, {foo: "bar"}, {upsert: true}, function(error) {
         collection.find({}, log("upsert(existing)"));
       });
+      collection.update({foo: "bar"}, {$set: {object: {field: 42}}}, function(error) {
+        collection.find({}, log("update($set(object))"));
+      });
+      collection.update({"object.field": 42}, {$set: {"object.field": 43}}, function(error) {
+        collection.find({}, log("update($set(object.field))"));
+      });
+      collection.update({foo: "bar"}, {$unset: {object: 1}}, function(error) {
+        collection.find({}, log("update($unset)"));
+      });
     });
   });
 });

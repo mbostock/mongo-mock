@@ -157,3 +157,12 @@ upsert(new):
 upsert(existing):
   {"foo":"bar","_id":"4e21d7de0123ab012300000a"}
 
+update($set(object)):
+  {"foo":"bar","_id":"4e21d7de0123ab012300000a","object":{"field":42}}
+
+update($set(object.field)):
+  {"foo":"bar","_id":"4e21d7de0123ab012300000a","object":{"field":43}}
+
+update($unset):
+  {"foo":"bar","_id":"4e21d7de0123ab012300000a"}
+
