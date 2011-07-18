@@ -106,6 +106,42 @@ find(_id = ObjectId(4e21d7d80123ab0123000004)):
 find(array = [1,2,"three"]):
   {"array":[1,2,"three"],"_id":"4e21d7dc0123ab0123000008"}
 
+remove(string = string):
+  {"number":42,"_id":"4e21d7d70123ab0123000003"}
+  {"boolean":true,"_id":"4e21d7d80123ab0123000004"}
+  {"null":null,"_id":"4e21d7d90123ab0123000005"}
+  {"date":"2011-01-01T08:00:00.000Z","_id":"4e21d7da0123ab0123000006"}
+  {"object":{"boolean":true,"number":42,"array":[1,2,"three"]},"_id":"4e21d7db0123ab0123000007"}
+  {"array":[1,2,"three"],"_id":"4e21d7dc0123ab0123000008"}
+
+remove(does.not.exist = true):
+  {"number":42,"_id":"4e21d7d70123ab0123000003"}
+  {"boolean":true,"_id":"4e21d7d80123ab0123000004"}
+  {"null":null,"_id":"4e21d7d90123ab0123000005"}
+  {"date":"2011-01-01T08:00:00.000Z","_id":"4e21d7da0123ab0123000006"}
+  {"object":{"boolean":true,"number":42,"array":[1,2,"three"]},"_id":"4e21d7db0123ab0123000007"}
+  {"array":[1,2,"three"],"_id":"4e21d7dc0123ab0123000008"}
+
+remove(array):
+  {"number":42,"_id":"4e21d7d70123ab0123000003"}
+  {"boolean":true,"_id":"4e21d7d80123ab0123000004"}
+  {"null":null,"_id":"4e21d7d90123ab0123000005"}
+  {"date":"2011-01-01T08:00:00.000Z","_id":"4e21d7da0123ab0123000006"}
+  {"object":{"boolean":true,"number":42,"array":[1,2,"three"]},"_id":"4e21d7db0123ab0123000007"}
+
+remove(object):
+  {"number":42,"_id":"4e21d7d70123ab0123000003"}
+  {"boolean":true,"_id":"4e21d7d80123ab0123000004"}
+  {"null":null,"_id":"4e21d7d90123ab0123000005"}
+  {"date":"2011-01-01T08:00:00.000Z","_id":"4e21d7da0123ab0123000006"}
+
+remove(ObjectId(4e21d7d80123ab0123000004)):
+  {"number":42,"_id":"4e21d7d70123ab0123000003"}
+  {"null":null,"_id":"4e21d7d90123ab0123000005"}
+  {"date":"2011-01-01T08:00:00.000Z","_id":"4e21d7da0123ab0123000006"}
+
+remove():
+
 save(new):
   {"hello":"world","_id":"4e21d7dd0123ab0123000009"}
 

@@ -39,11 +39,7 @@ db.open(function(error) {
     ], function(error) {
       collection.find({}, log("insert(objects)"));
     });
-  });
-});
 
-db.open(function(error) {
-  db.collection("inserts", function(error, collection) {
     collection.find({string: "string"}, log("find(string = \"string\")"));
     collection.find({number: 42}, log("find(number = 42)"));
     collection.find({number: {$gte: 42}}, log("find(number >= 42)"));
@@ -79,6 +75,25 @@ db.open(function(error) {
     collection.find({date: {$lte: new Date(2010, 11, 31), $gte: new Date(2011, 0, 2)}}, log("find(date >= 2011-01-02 and date <= 2010-12-31)"));
     collection.find({_id: new ObjectId("4e21d7d80123ab0123000004")}, log("find(_id = ObjectId(4e21d7d80123ab0123000004))"));
     collection.find({array: [1, 2, "three"]}, log("find(array = [1,2,\"three\"])"));
+
+    collection.remove({string: "string"}, function(error) {
+      collection.find({}, log("remove(string = string)"));
+    });
+    collection.remove({"does.not.exist": true}, function(error) {
+      collection.find({}, log("remove(does.not.exist = true)"));
+    });
+    collection.remove({array: [1, 2, "three"]}, function(error) {
+      collection.find({}, log("remove(array)"));
+    });
+    collection.remove({object: {"boolean": true, "number": 42, "array": [1, 2, "three"]}}, function(error) {
+      collection.find({}, log("remove(object)"));
+    });
+    collection.remove({_id: new ObjectId("4e21d7d80123ab0123000004")}, function(error) {
+      collection.find({}, log("remove(ObjectId(4e21d7d80123ab0123000004))"));
+    });
+    collection.remove({}, function(error) {
+      collection.find({}, log("remove()"));
+    });
   });
 });
 
