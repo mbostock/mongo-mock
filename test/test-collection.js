@@ -99,6 +99,17 @@ db.open(function(error) {
   });
 });
 
+db.open(function(error) {
+  db.collection("upsert", function(error, collection) {
+    collection.update({hello: "world"}, {hello: "world"}, {upsert: true}, function(error) {
+      collection.find({}, log("upsert(new)"));
+      collection.update({hello: "world"}, {foo: "bar"}, {upsert: true}, function(error) {
+        collection.find({}, log("upsert(existing)"));
+      });
+    });
+  });
+});
+
 function log(message) {
   return function(error, cursor) {
     console.log(message + ":");

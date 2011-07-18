@@ -115,3 +115,9 @@ save(existing):
 save(updated):
   {"hello":2,"_id":"4e21d7dd0123ab0123000009","foo":"bar"}
 
+upsert(new):
+  {"hello":"world","_id":"4e21d7de0123ab012300000a"}
+
+upsert(existing):
+  {"foo":"bar","_id":"4e21d7de0123ab012300000a"}
+
